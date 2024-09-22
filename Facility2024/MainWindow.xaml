@@ -4,9 +4,32 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Facility2024"
+        xmlns:views="clr-namespace:Facility2024.Views"
         mc:Ignorable="d"
         Title="Facility2024" Height="600" Width="900">
-    
+    <Window.Resources>
+
+        <DataTemplate x:Name="OrdersView" DataType="(x:Type views:OrdersView)">
+            <views:OrdersView DataContext="{Binding}" />
+        </DataTemplate>
+
+        <DataTemplate x:Name="ProductsView" DataType="(x:Type views:ProductsView)">
+            <views:ProductsView DataContext="{Binding}" />
+        </DataTemplate>
+
+        <DataTemplate x:Name="SellersView" DataType="(x:Type views:SellersView)">
+            <views:SellersView DataContext="{Binding}" />
+        </DataTemplate>
+
+        <DataTemplate x:Name="ClientsView" DataType="(x:Type views:ClientsView)">
+            <views:ClientsView DataContext="{Binding}" />
+        </DataTemplate>
+
+        <DataTemplate x:Name="LocationsView" DataType="(X:Type view:LocationsView)">
+            <views:LocationsView DataContext="{Binding}" />
+        </DataTemplate>
+    </Window.Resources>
+
     <!--Alvin Cesar Sanchez Ochoa Alvarez-->
     <Grid>
         <Grid.RowDefinitions>
@@ -15,14 +38,15 @@
         </Grid.RowDefinitions>
 
         <Menu Height="48" Width="Auto" Padding="8" >
-            <MenuItem Header="Orders" Padding="8 0" Margin="4 0" Height="32" />
-            <MenuItem Header="Products" Padding="8 0" Margin="4 0" Height="32" />
-            <MenuItem Header="Sellers" Padding="8 0" Margin="4 0" Height="32" />
-            <MenuItem Header="Clients" Padding="8 0" Margin="4 0" Height="32" />
-            <MenuItem Header="Location" Padding="8 0" Margin="4 0" Height="32" />
+            <MenuItem Header="Orders" Padding="8 0" Margin="4 0" Height="32" Click="HandleOrdersView"/>
+            <MenuItem Header="Products" Padding="8 0" Margin="4 0" Height="32" Click="HandleProductsView"/>
+            <MenuItem Header="Sellers" Padding="8 0" Margin="4 0" Height="32" Click="HandleSellersView" />
+            <MenuItem Header="Clients" Padding="8 0" Margin="4 0" Height="32" Click="HandleClientsView"/>
+            <MenuItem Header="Location" Padding="8 0" Margin="4 0" Height="32" Click="HandleLocationsView"/>
         </Menu>
 
         <ScrollViewer Grid.Row="1">
+            <ContentControl Content="{Binding}" />
         </ScrollViewer>
     </Grid>
 </Window>

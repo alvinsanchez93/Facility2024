@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+///Alvin Cesar Sanchez Ochoa Alvarez.
+using Facility2024.Views;
+
 namespace Facility2024
 {
     /// <summary>
@@ -23,6 +26,30 @@ namespace Facility2024
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        ///Alvin Cesar Sanchez Ochoa Alvarez.
+        private void HandleOrdersView(object sender, RoutedEventArgs e)
+        {
+            DataContext = new OrdersView();
+        }
+        private void HandleProductsView(object sender, RoutedEventArgs e)
+        { 
+            DataContext = new ProductsView();
+        }        
+        private void HandleSellersView(object sender, RoutedEventArgs e)
+        {
+            DataContext = new SellersView();
+        }
+
+        private void HandleClientsView(object sender, RoutedEventArgs e)
+        {
+            DataContext = new ClientsView();
+        }
+
+        private void HandleLocationsView(object sender, RoutedEventArgs e)
+        {
+            DataContext = new LocationsView();
         }
     }
 }
